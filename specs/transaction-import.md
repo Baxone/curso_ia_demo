@@ -9,7 +9,7 @@
 ## Descripción
 
 Recibe un archivo CSV con transacciones bancarias, valida el formato
-y devuelve un resumen de la importación. Sin persistencia en base de datos.
+y devuelve un resumen de la importación. Sin persistencia en base de datos. 
 
 ## Alcance
 
@@ -44,26 +44,21 @@ Tamaño máximo:        10 MB
 ```
 
 ## Output exitoso
+## Estructura de respuesta
 
-```json
 {
-  "valid_count": 47,
+  "valid_count": number,
   "rejected": [
-    { "line": 3, "reason": "campo 'amount' vacío en línea 3" }
+    { "line": number, "reason": string }
   ],
   "total_by_category": {
-    "Alimentación": 450.30,
-    "Transporte": 89.50
+    "NombreCategoria": number
   },
   "top_5": [
-    { "date": "2026-03-15", "description": "Factura electricidad", "amount": 145.30 },
-    { "date": "2026-03-10", "description": "Alquiler", "amount": 900.00 },
-    { "date": "2026-03-01", "description": "Seguro coche", "amount": 87.50 },
-    { "date": "2026-03-20", "description": "Supermercado", "amount": 76.20 },
-    { "date": "2026-03-05", "description": "Gasolina", "amount": 65.00 }
+    { "date": string, "description": string, "amount": number }
   ]
 }
-```
+
 
 ## Reglas de negocio
 
