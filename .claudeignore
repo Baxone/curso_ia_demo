@@ -1,0 +1,36 @@
+# Credenciales y secretos — barrera técnica
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+config/secrets/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Datos sensibles
+data/private/
+exports/
+
+# Dependencias y builds — sin valor para el agente
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+*.pyc
+*.class
+target/
+
+# Logs
+*.log
+logs/
+
+# IDE y OS
+.DS_Store
+.idea/
+.vscode/settings.json
+Thumbs.db

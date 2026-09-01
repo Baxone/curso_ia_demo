@@ -1,0 +1,41 @@
+{
+  "model": "anthropic/claude-sonnet-4-6",
+
+  "exclude": [
+    "**/.env*",
+    "**/config/secrets/**",
+    "**/*.pem",
+    "**/*.key",
+    "**/*.crt",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/*.log"
+  ],
+
+  "tools": {
+    "pr-review": {
+      "description": "Revisa el código como QA senior — patrón Critic-Actor",
+      "command": "cat .claude/skills/pr-review.md"
+    },
+    "tdd-feature": {
+      "description": "Implementa feature con flujo TDD agentizado (tests primero)",
+      "command": "cat .claude/skills/tdd-feature.md"
+    },
+    "audit-context": {
+      "description": "Audita la calidad del AGENTS.md con rúbrica de 13 ítems",
+      "command": "cat .claude/skills/audit-context.md"
+    },
+    "mid-flight-change": {
+      "description": "Gestiona cambio de requisito en 4 pasos sin romper el código",
+      "command": "cat .claude/skills/mid-flight-change.md"
+    }
+  },
+
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    }
+  }
+}

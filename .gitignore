@@ -1,0 +1,37 @@
+# Credenciales — nunca al repo
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+config/secrets/*
+!config/secrets/.gitkeep
+*.pem
+*.key
+*.crt
+
+# Dependencias
+node_modules/
+vendor/
+
+# Builds
+dist/
+build/
+.next/
+out/
+__pycache__/
+*.pyc
+*.class
+target/
+
+# Logs
+*.log
+logs/
+
+# IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
