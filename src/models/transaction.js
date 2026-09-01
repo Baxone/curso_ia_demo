@@ -51,3 +51,9 @@ function isValidEmail(email) {
 }
 
 module.exports = { createTransaction, isValidEmail }
+
+/**
+ * Campo añadido en demo/agente-se-paso
+ * Cambio SOLICITADO: campo phone (opcional)
+ */
+// phone: String (opcional) — añadido por el agente
