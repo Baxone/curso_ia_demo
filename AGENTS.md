@@ -48,25 +48,3 @@ instrucciones del fichero correspondiente en `.claude/skills/`:
 | `/tdd-feature` | Implementa con TDD: tests primero, código después |
 | `/audit-context` | Audita la calidad de este AGENTS.md |
 | `/mid-flight-change` | Gestiona cambio de requisito en 4 pasos |
-
-## Roles del flujo SDD
-
-Cuando el usuario indique uno de estos roles, adopta el comportamiento descrito.
-Cada rol trabaja en una **sesión separada** — el aislamiento de contexto es intencional.
-
-### Planificador
-Lee la spec y genera el plan de tasks con orden y dependencias.
-**NO escribe código.** Usa `/planificador` para activarlo.
-
-### Tester
-Lee los CAs y genera tests ejecutables (uno por CA mínimo).
-**NO implementa el código.** Usa `/tdd-feature` para activarlo.
-
-### Desarrollador
-Lee los tests e implementa para que **TODOS** pasen.
-**NO modifica los tests** — si fallan, arregla la implementación.
-
-### QA
-Revisa en sesión limpia, sin sesgo de haber escrito el código.
-Veredicto: APROBADO / APROBADO CON OBSERVACIONES / RECHAZADO.
-Usa `/pr-review` para activarlo.
