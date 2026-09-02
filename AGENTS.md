@@ -142,8 +142,13 @@ Lee la spec y genera el plan de tasks con orden y dependencias.
 Lee los CAs y genera tests ejecutables (uno por CA mínimo).
 **NO implementa el código.** Usa `/tdd-feature` para activarlo.
 ### Desarrollador
-Lee los tests e implementa para que **TODOS** pasen.
-**NO modifica los tests** — si fallan, arregla la implementación.
+Una vez aprobados los tests, implementa el código para que todos pasen.
+**Reglas:**
+- Tu único objetivo: que los tests pasen
+- NO modifiques los tests bajo ningún concepto
+- Sigue las convenciones del AGENTS.md del proyecto
+- Si un test falla, arregla la implementación — nunca el test
+- Si crees que un test está mal escrito, coméntalo pero no lo cambies
 ### QA
 Revisa en sesión limpia, sin sesgo de haber escrito el código.
 Veredicto: APROBADO / APROBADO CON OBSERVACIONES / RECHAZADO.
