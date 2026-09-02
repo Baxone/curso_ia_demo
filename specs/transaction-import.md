@@ -1,8 +1,11 @@
 # Spec Funcional — POST /transactions/import
 
 **Estado:** Aprobada  
-**Versión:** 1.0  
+**Versión:** 1.1  
 **Usada en:** Ejercicio 4.1 (Jornada 3) — TDD agentizado
+
+**Historial de cambios:**
+- v1.1 (02-09-2026): `category` pasa de obligatorio a opcional. Ver `doc/inventario/02-09-26_inventario_category.md`.
 
 ---
 
@@ -37,7 +40,9 @@ Campo:        file (el archivo CSV)
 ## Formato CSV esperado
 
 ```
-Headers obligatorios: date, description, category, amount
+Headers obligatorios: date, description, amount
+Headers opcionales:   category (si la columna no está presente en el CSV, o el
+                      valor de la fila está vacío, se asigna "Sin categoría")
 Separador:            coma (,)
 Encoding:             UTF-8
 Tamaño máximo:        10 MB
@@ -62,11 +67,11 @@ Tamaño máximo:        10 MB
 
 ## Reglas de negocio
 
-1. Todas las columnas son obligatorias en cada fila
+1. Las columnas `date`, `description` y `amount` son obligatorias en cada fila. `category` es opcional: si la columna no existe en el CSV, o el valor de la fila está vacío, se normaliza al valor `"Sin categoría"`
 2. Si una fila falla validación → se incluye en `rejected` con el número de línea y el motivo
 3. Las filas válidas se procesan con normalidad aunque haya filas rechazadas
 4. El campo `amount` debe ser un número decimal válido (positivo, negativo o cero)
-5. `total_by_category` suma los importes de las filas **válidas** por categoría
+5. `total_by_category` suma los importes de las filas **válidas** por categoría, incluyendo `"Sin categoría"` como una categoría más para las filas que no tengan una asignada
 6. `top_5` son las 5 filas de mayor `amount` en orden descendente. En caso de empate, el orden es indeterminado
 
 ## Criterios de aceptación
@@ -156,6 +161,18 @@ Tamaño máximo:        10 MB
 
 ---
 
+### CA-8 — Fila con `category` vacía o ausente
+
+**Dado:** CSV donde la columna `category` no está presente en los headers, o está presente pero la fila K tiene el valor de `category` vacío
+**Cuando:** POST /transactions/import
+**Entonces:**
+- Respuesta: `200 OK`
+- La fila K se considera **válida** (no aparece en `rejected`)
+- El valor de `category` de la fila se normaliza a `"Sin categoría"`
+- `total_by_category` incluye la clave `"Sin categoría"` con la suma correspondiente a esa(s) fila(s)
+
+---
+
 ## Estructura de ficheros esperada
 
 ```
@@ -174,3 +191,6 @@ tests/
 - El campo `amount` acepta valores negativos (gastos negativos son válidos en contabilidad)
 - El número de línea en `rejected` cuenta desde 1, siendo la línea 1 los headers
   (es decir, la primera fila de datos es la línea 2)
+- El campo `category` es opcional: si la columna no está presente en el CSV, o
+  el valor de la fila está vacío, se normaliza a `"Sin categoría"` (no se
+  rechaza la fila por este motivo)

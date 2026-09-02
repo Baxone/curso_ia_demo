@@ -149,3 +149,7 @@ Revisa en sesión limpia, sin sesgo de haber escrito el código.
 Veredicto: APROBADO / APROBADO CON OBSERVACIONES / RECHAZADO.
 Usa `/pr-review` para activarlo.
 
+## Criterios tecnicos y librerias de desarrollo
+Toda esta informacion esta explicada en 
+   /rules/tecnical-rules.md
+

@@ -6,6 +6,8 @@ junto con el AGENTS.md antes de implementar cualquier task.
 **Regla general: NO instalar dependencias nuevas sin pedirlo
 explícitamente. Todo lo necesario ya está en package.json.**
 
+Para instalar dependencias usa SIEMPRE pnpm.
+
 ---
 
 ## Runtime y framework
