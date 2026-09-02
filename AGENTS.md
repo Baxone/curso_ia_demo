@@ -65,6 +65,7 @@ Los tests van en tests/ — nunca junto al código fuente.
 
 | Comando | Qué hace |
 |---------|----------|
+| `/planificador` | Descompone una spec en tasks con orden y dependencias |
 | `/pr-review` | Revisa el código como QA senior — Critic-Actor |
 | `/tdd-feature` | Implementa con TDD: tests primero, código después |
 | `/audit-context` | Audita la calidad de este AGENTS.md |

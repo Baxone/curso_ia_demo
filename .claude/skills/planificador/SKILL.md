@@ -46,7 +46,6 @@ Depende de: TASK-X, TASK-Y (o "ninguna")
 ## Cómo usar esta skill
 
 ```
-/planificador
+/planificador carpeta/mi_spec.md
 
-Spec: [pegar spec funcional]
 ```
