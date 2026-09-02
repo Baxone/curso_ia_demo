@@ -14,21 +14,25 @@
   ],
 
   "tools": {
-    "pr-review": {
-      "description": "Revisa el código como QA senior — patrón Critic-Actor",
-      "command": "cat .claude/skills/pr-review.md"
+    "planificador": {
+      "description": "Descompone una spec en tasks implementables con orden y dependencias",
+      "command": "cat .claude/skills/planificador/skill.md"
     },
     "tdd-feature": {
       "description": "Implementa feature con flujo TDD agentizado (tests primero)",
-      "command": "cat .claude/skills/tdd-feature.md"
+      "command": "cat .claude/skills/tdd-feature/skill.md"
+    },
+    "pr-review": {
+      "description": "Revisa el código como QA senior — patrón Critic-Actor",
+      "command": "cat .claude/skills/pr-review/skill.md"
     },
     "audit-context": {
       "description": "Audita la calidad del AGENTS.md con rúbrica de 13 ítems",
-      "command": "cat .claude/skills/audit-context.md"
+      "command": "cat .claude/skills/audit-context/skill.md"
     },
     "mid-flight-change": {
       "description": "Gestiona cambio de requisito en 4 pasos sin romper el código",
-      "command": "cat .claude/skills/mid-flight-change.md"
+      "command": "cat .claude/skills/mid-flight-change/skill.md"
     }
   },
 
