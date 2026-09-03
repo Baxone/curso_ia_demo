@@ -1,5 +1,6 @@
 {
-  "model": "anthropic/claude-sonnet-4-6",
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/anthropic/claude-sonnet-5",
 
   "exclude": [
     "**/.env*",
@@ -13,33 +14,33 @@
     "**/*.log"
   ],
 
-  "tools": {
+  "command": {
     "planificador": {
       "description": "Descompone una spec en tasks implementables con orden y dependencias",
-      "command": "cat .claude/skills/planificador/skill.md"
+      "template": "Lee y sigue al pie de la letra las instrucciones de .claude/skills/planificador/skill.md para: $ARGUMENTS"
     },
     "tdd-feature": {
       "description": "Implementa feature con flujo TDD agentizado (tests primero)",
-      "command": "cat .claude/skills/tdd-feature/skill.md"
+      "template": "Lee y sigue al pie de la letra las instrucciones de .claude/skills/tdd-feature/skill.md para: $ARGUMENTS"
     },
     "pr-review": {
       "description": "Revisa el código como QA senior — patrón Critic-Actor",
-      "command": "cat .claude/skills/pr-review/skill.md"
+      "template": "Lee y sigue al pie de la letra las instrucciones de .claude/skills/pr-review/skill.md para: $ARGUMENTS"
     },
     "audit-context": {
       "description": "Audita la calidad del AGENTS.md con rúbrica de 13 ítems",
-      "command": "cat .claude/skills/audit-context/skill.md"
+      "template": "Lee y sigue al pie de la letra las instrucciones de .claude/skills/audit-context/skill.md para: $ARGUMENTS"
     },
     "mid-flight-change": {
       "description": "Gestiona cambio de requisito en 4 pasos sin romper el código",
-      "command": "cat .claude/skills/mid-flight-change/skill.md"
+      "template": "Lee y sigue al pie de la letra las instrucciones de .claude/skills/mid-flight-change/skill.md para: $ARGUMENTS"
     }
   },
 
-  "mcpServers": {
+  "mcp": {
     "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."]
     }
   }
 }
